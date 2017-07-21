@@ -19,6 +19,8 @@ Connect to your PCC service using GemFire GFSH as described [here](https://docs.
 ```
 gfsh>create region --name=employee --type=REPLICATE
 ```
+Build the App
+```
 $ cd SpringBootPCCDemo
 $ mvn package
 ```

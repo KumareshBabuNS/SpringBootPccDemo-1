@@ -34,8 +34,7 @@ $ cf push
 Create some data
 
 ```
-$curl -X POST -H'Content-type: application/json' <app-base-url>/employees -d'{"id":1,"firstName":"First",
-"lastName":"Last"'
+$curl -X POST -H'Content-type: application/json' <app-base-url>/employees -d'{"id":1,"firstName":"First","lastName":"Last"}'
 ```
 
 Get the data

@@ -40,7 +40,6 @@ public class DemoConfig {
 	@Profile("cloud")
 	@Configuration
 	static class PccConfiguration extends AbstractCloudConfig {
-
 		@Bean
 		public ServiceConnectorConfig gemfireConnectorConfig(PdxSerializer pdxSerializer) {
 
@@ -52,7 +51,7 @@ public class DemoConfig {
 			return gemfireConfig;
 		}
 
-		@Bean(name = "gemfireCache")
+		@Bean(name = "clientCache")
 		public ClientCache getGemfireClientCache(ServiceConnectorConfig serviceConnectorConfig) throws Exception {
 
 			Cloud cloud = new CloudFactory().getCloud();
@@ -60,12 +59,12 @@ public class DemoConfig {
 
 			return clientCache;
 		}
+	}
 
-		@Profile("!cloud")
-		@Configuration
-		@ImportResource("cache-config.xml")
-		static class StandaloneConfiguration {
-		}
+	@Profile("!cloud")
+	@Configuration
+	@ImportResource("cache-config.xml")
+	static class StandaloneConfiguration {
 	}
 
 	@Bean
@@ -75,10 +74,10 @@ public class DemoConfig {
 
 	@Bean(name = "employee")
 	public Region<String, Employee> employeeRegion(ClientCache clientCache) {
-		ClientRegionFactory<String, Employee> customerRegionFactory = clientCache
+		ClientRegionFactory<String, Employee> clientRegionFactory = clientCache
 				.createClientRegionFactory(ClientRegionShortcut.PROXY);
 
-		Region<String, Employee> employeeRegion = customerRegionFactory.create("employee");
+		Region<String, Employee> employeeRegion = clientRegionFactory.create("employee");
 
 		return employeeRegion;
 	}

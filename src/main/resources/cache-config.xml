@@ -15,6 +15,7 @@
 
 	<gfe:client-cache properties-ref="gemfire-props" pdx-serializer-ref="pdxSerializer" pdx-read-serialized="false"/>
 
+
 	<gfe:pool>
 		<gfe:locator host="localhost" port="10334"/>
 	</gfe:pool>

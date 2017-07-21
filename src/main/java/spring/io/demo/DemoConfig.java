@@ -16,6 +16,7 @@
 
 package spring.io.demo;
 
+
 import io.pivotal.spring.cloud.service.gemfire.GemfireServiceConnectorConfig;
 import org.apache.geode.cache.Region;
 import org.apache.geode.cache.client.ClientCache;
@@ -33,6 +34,9 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.gemfire.GemfireTemplate;
 import spring.io.demo.domain.Employee;
+
+
+
 
 @Configuration
 public class DemoConfig {
@@ -53,12 +57,11 @@ public class DemoConfig {
 
 		@Bean(name = "clientCache")
 		public ClientCache getGemfireClientCache(ServiceConnectorConfig serviceConnectorConfig) throws Exception {
-
 			Cloud cloud = new CloudFactory().getCloud();
-			ClientCache clientCache = cloud.getSingletonServiceConnector(ClientCache.class, serviceConnectorConfig);
-
-			return clientCache;
+			return cloud.getSingletonServiceConnector(ClientCache.class, serviceConnectorConfig);
 		}
+
+
 	}
 
 	@Profile("!cloud")
@@ -71,6 +74,7 @@ public class DemoConfig {
 	PdxSerializer pdxSerializer() {
 		return new ReflectionBasedAutoSerializer(".*");
 	}
+
 
 	@Bean(name = "employee")
 	public Region<String, Employee> employeeRegion(ClientCache clientCache) {

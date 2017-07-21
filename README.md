@@ -31,3 +31,21 @@ Push to Pivotal Cloud Foundry
 $ cf push
 ```
 
+Create some data
+
+```
+$curl -X POST -H'Content-type: application/json' <app-base-url>/employees -d'{"id":1,"firstName":"First",
+"lastName":"Last"'
+```
+
+Get the data
+```
+$curl <app-base-url>/employees/1
+```
+
+Run a Query
+```
+$curl <app-base-url>/employees?q="firstName='First'"
+```
+
+

@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import spring.io.demo.domain.Employee;
+import spring.io.demo.repo.EmployeeRepository;
 
 import java.util.Collection;
 
@@ -41,14 +42,17 @@ public class EmployeeController {
 	@Autowired
 	private GemfireTemplate template;
 
+	@Autowired
+	private EmployeeRepository repository;
+
 	@PostMapping("/employees")
 	public void addEmployee(@RequestBody Employee employee) {
-		template.put(employee.getId(), employee);
+		repository.save(employee);
 	}
 
 	@GetMapping("/employees/{id}")
 	public Employee getEmployee(@PathVariable int id) {
-		return template.get(id);
+		return repository.findOne(id);
 	}
 
 	@GetMapping("/employees")

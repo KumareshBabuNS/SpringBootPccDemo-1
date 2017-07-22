@@ -18,9 +18,13 @@ package spring.io.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.gemfire.mapping.Region;
 
+@Region("employee")
 public class Employee {
-	private int id;
+	@Id
+	private Integer id;
 
 	private String firstName;
 	private String lastName;
@@ -29,7 +33,7 @@ public class Employee {
 	}
 
 	@JsonCreator
-	public Employee(@JsonProperty("id") int id, @JsonProperty("firstName") String firstName,
+	public Employee(@JsonProperty("id") Integer id, @JsonProperty("firstName") String firstName,
 			@JsonProperty("lastName") String lastName) {
 		this.id = id;
 		this.firstName = firstName;

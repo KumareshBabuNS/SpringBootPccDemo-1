@@ -12,8 +12,7 @@ $ cf create-service p-cloudcache extra-small cloudcache
 ```
 
 
-Connect to your PCC service using  *gfsh* as described [here](https://docs.pivotal
-.io/p-cloud-cache/1-0/developer.html) and create the `employee` region.
+Connect to your PCC service using  *gfsh* as described [here](https://docs.pivotal.io/p-cloud-cache/1-0/developer.html) and create the `employee` region.
 
 ```
 gfsh>create region --name=employee --type=REPLICATE

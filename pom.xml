@@ -34,12 +34,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.pivotal.gemfire</groupId>
-			<artifactId>geode-core</artifactId>
-			<version>9.0.4</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -85,11 +79,6 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<id>gemfire-release-repo</id>
-			<name>Pivotal GemFire Release Repository</name>
-			<url>https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire</url>
-		</repository>
 		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>

@@ -11,10 +11,9 @@ Create a Pivotal Cloud Cache service instance named `cloudcache`.
 $ cf create-service p-cloudcache extra-small cloudcache
 ```
 
-Set up access to Pivotal's [Gemfire Maven Repository](https://gemfire.docs.pivotal.io/gemfire/getting_started/installation/obtain_gemfire_maven.html)
 
-
-Connect to your PCC service using GemFire GFSH as described [here](https://docs.pivotal.io/p-cloud-cache/1-0/developer.html) and create the `employee` region.
+Connect to your PCC service using  *gfsh* as described [here](https://docs.pivotal
+.io/p-cloud-cache/1-0/developer.html) and create the `employee` region.
 
 ```
 gfsh>create region --name=employee --type=REPLICATE
